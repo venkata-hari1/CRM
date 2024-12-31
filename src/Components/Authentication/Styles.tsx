@@ -45,7 +45,7 @@ export const Styles = (theme: Theme) => ({
     gridcontainer: {
         width: '100% !important',
         height:'100vh',
-        overflowY:'hidden !important' as 'hidden',
+        // overflowY:'hidden !important' as 'hidden',
         [theme.breakpoints.down('lg')]: {
             width: '93% !important'
         }

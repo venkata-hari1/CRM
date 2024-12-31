@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState,version } from 'react';
-import { Alert, Box, Button, Divider, FormControl, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Divider, FormControl, Grid, TextField, Theme, Typography, useMediaQuery } from '@mui/material';
 import Logo from '../Common/assets/images/logo1.png';
 import { Styles } from './Styles';
 import { withStyles } from '@mui/styles';
@@ -12,8 +12,8 @@ import { withRouter } from '../../Utils/withRouter';
 import { AppDispatch } from '../Redux/store/Store';
 import Circular from '../Common/Circular';
 import { EmailRegex, PasswordRegex, PhoneRegex, checkPhoneRegx } from '../../Utils/Validate';
-import { SignIn } from '../Redux/Reducers/Authentication';
 type IProps = {
+   isDektop:any,
     navigate: Function,
     classes: {
         [type: string]: string
@@ -25,13 +25,10 @@ type IState = {
     password: string,
 }
 
-const Login = ({ navigate, classes, dispatch }: IProps) => {
-    const [value, setValue] = useState<string>('');
+const Login = ({ navigate, classes,isDektop }: IProps) => {
     const [display, setDisplay] = useState<boolean>(true);
     const [errorMessage, setErrorMessage] = useState<string>('')
     const [successMessage, setSuccessMessage] = useState<string>('')
-    const [open, setOpen] = useState<boolean>(false)
-    const[Token,setToken]=useState<string | undefined>('')
     const[view,setView]=useState(false)
     const [auth, setAuth] = useState<IState>({
         email_mobile: '',
@@ -105,7 +102,6 @@ const Login = ({ navigate, classes, dispatch }: IProps) => {
             handleLogin()
         }
       }
-   
     return (
         <Fragment>
             <Circular open={view}/>
@@ -160,10 +156,10 @@ const Login = ({ navigate, classes, dispatch }: IProps) => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} lg={6} md={12} sx={{ background: '#F4FAFF' }}>
+                    <Grid item xs={12} lg={6} md={12} sx={{ background: isDektop?'white':'#F4FAFF' }}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                     <Divider />
-                        <Property />
+                        {!isDektop&&<Property />}
                     </Grid>
                 </Grid>
             </Box>

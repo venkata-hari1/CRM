@@ -1,18 +1,16 @@
-import { Alert, Box, Button, Divider, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Divider, FormControl, Grid, SelectChangeEvent, TextField, Typography } from '@mui/material';
 import React, { Component, Fragment } from 'react';
 import { withStyles } from '@mui/styles';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Property from './AuthenticationRightSection'
 import  Logo from '../Common/assets/images/logo1.png'
 import { Styles } from './Styles';
-import {Link} from 'react-router-dom'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { withRouter } from '../../Utils/withRouter';
 import { PasswordRegex } from '../../Utils/Validate';
-import { Reset_Password } from '../Redux/Reducers/Authentication';
 import { AppDispatch } from '../Redux/store/Store';
 type IProps={
+    isDektop:any,
     navigate:Function,
     classes:{
         [type:string]:string
@@ -87,7 +85,8 @@ class ResetPassword extends Component<IProps,IState> {
     render() {
         const {classes}=this.props
         return (
-                <Grid container>
+             <Box className={classes.register_flex}>
+                <Grid container className={classes.gridcontainer}>
                     <Grid item xs={12} lg={6} md={12} order={2}>    
                     <Box className={classes.register_conatiner}> 
                     <Box className={classes.register_leftsection_text1}>
@@ -137,12 +136,13 @@ class ResetPassword extends Component<IProps,IState> {
                     </Box>
                     </Box>
                     </Grid>
-                    <Grid item xs={12} lg={6} md={12} sx={{background:'#F4FAFF'}}>
+                    <Grid item xs={12} lg={6} md={12} sx={{background:this.props.isDektop?'white':'#F4FAFF'}}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={()=>this.props.navigate('/')}/>
                     <Divider/>
-                     <Property/>
+                     {!this.props.isDektop&&<Property />}
                     </Grid>
                 </Grid>
+                </Box>
         );
     }
 }

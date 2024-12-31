@@ -1,26 +1,24 @@
 import React, { Fragment, useState } from 'react';
 import { Alert, Box, Button, Divider, FormControl, Grid, TextField, Typography } from '@mui/material';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from '../Common/assets/images/logo1.png';
 import OTPVerfication from './OtpVerfication';
 import Property from './AuthenticationRightSection';
 import { Styles } from './Styles';
 import { withStyles } from '@mui/styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAuth } from '../Redux/Reducers/LandingReducer';
+import { useSelector } from 'react-redux';
 import { withRouter } from '../../Utils/withRouter';
-import { Send_Otp } from '../Redux/Reducers/Authentication';
-import { AppDispatch } from '../Redux/store/Store';
 import { EmailRegex } from '../../Utils/Validate';
 import Circular from '../Common/Circular';
+import { AppDispatch } from '../Redux/store/Store';
 type IProps={
+    isDektop:any,
     dispatch:AppDispatch,
     navigate:Function,
     classes:{
         [type:string]:string
     }
 }
-const ForgetPassword = ({ navigate, classes,dispatch }:IProps) => {
+const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
     const [value, setValue] = useState<string>('');
     const [open, setOpen] = useState<boolean>(false);
     const[view,setView]=useState<boolean>(false)
@@ -91,10 +89,10 @@ const ForgetPassword = ({ navigate, classes,dispatch }:IProps) => {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} lg={6} md={12} sx={{ background: '#F4FAFF' }}>
+                <Grid item xs={12} lg={6} md={12} sx={{ background: isDektop?'white':'#F4FAFF' }}>
                 <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                 <Divider /> 
-                    <Property />
+                    {!isDektop&&<Property />}
                 </Grid>
             </Grid>
         </Box>
