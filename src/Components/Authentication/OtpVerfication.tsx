@@ -97,7 +97,7 @@ function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop 
               value={otp}
               onChange={handleSendOtp}
               numInputs={4}
-              renderSeparator={<span style={{ width: '20px' }}></span>}
+              renderSeparator={<span style={{ width: '15px' }}></span>}
               renderInput={(props) => <input {...props} />}
               inputStyle={{
                 width:"38px",
