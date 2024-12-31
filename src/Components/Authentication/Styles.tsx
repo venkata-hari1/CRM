@@ -44,10 +44,11 @@ export const Styles = (theme: Theme) => ({
         height: 'auto !important'
     },
     gridcontainer: {
-        height:'fit-content !important' as 'fit-content',
         width: '100% !important',
+        height:'100vh',
         [theme.breakpoints.down('lg')]: {
-            width: '93% !important'
+            height:'fit-content !important',
+            width: '85% !important'
         }
     },
    
