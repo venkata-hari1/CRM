@@ -45,7 +45,7 @@ class ResetPassword extends Component<IProps,IState> {
         this.setState({value:e.target.value})
     }
     handleReset=async()=>{
-        this.props.navigate('/login')
+        this.props.navigate('/')
     }
     handlePasswordChangeFun=(e:React.ChangeEvent<HTMLInputElement>)=>{
     const {name,value}=e.target

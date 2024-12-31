@@ -51,7 +51,7 @@ const MainRoutes = () => {
             )} */}
                     {/* <Route path='/' element={<Navigate to='/admin/dashboard' />} /> */}
                     {/* <Route path='/admin/*' element={<AdminDashboard />} /> */}
-                    <Route path='/login' element={<Login />} />
+                    <Route path='/' element={<Login />} />
                     <Route path='/forgotpassword' element={<ForgetPassword />} />
                     <Route path='/resetpassword' element={<ResetPassword />} />
                    
