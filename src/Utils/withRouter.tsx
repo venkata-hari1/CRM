@@ -7,14 +7,14 @@ export const withRouter = (Child: React.ComponentType<any>) => {
   return (props: any) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const isDektop=useMediaQuery((theme:Theme)=>theme.breakpoints.down('lg'))
+    const lsdesktop=useMediaQuery((theme:Theme)=>theme.breakpoints.down('lg'))
     const params = useParams<{ [key: string]: string }>();
     const dispatch = useDispatch();
     const selector=useSelector((state:RootState)=>state)
     return (
       <Child
         {...props}
-        isDektop={isDektop}
+       lsdesktop={lsdesktop}
         selector={selector}
         navigate={navigate}
         location={location}

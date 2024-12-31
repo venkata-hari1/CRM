@@ -11,14 +11,14 @@ import { EmailRegex } from '../../Utils/Validate';
 import Circular from '../Common/Circular';
 import { AppDispatch } from '../Redux/store/Store';
 type IProps={
-    isDektop:any,
+   lsdesktop:any,
     dispatch:AppDispatch,
     navigate:Function,
     classes:{
         [type:string]:string
     }
 }
-const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
+const ForgetPassword = ({ navigate, classes,dispatch,lsdesktop }:IProps) => {
     const [value, setValue] = useState<string>('');
     const [open, setOpen] = useState<boolean>(false);
     const[view,setView]=useState<boolean>(false)
@@ -63,7 +63,7 @@ const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
         <Fragment>
              <Circular open={view}/>
             <OTPVerfication Open={open} handleClose={handleClose} />
-            {isDektop&&
+            {lsdesktop&&
             <Fragment>
               <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => navigate('/')} />
               <Divider />
@@ -71,8 +71,8 @@ const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
             }
         <Box className={classes.register_flex}>
             <Grid container className={classes.gridcontainer}>
-                <Grid item xs={12} lg={6} md={12} order={2}>
-                    <Box sx={{height:isDektop?'60vh':'90vh'}} className={classes.register_conatiner}>
+                <Grid item xs={12} lg={6} md={12} order={2} >
+                    <Box sx={{height:lsdesktop?'60vh':'90vh'}} className={classes.register_conatiner}>
                         <Box className={classes.register_leftsection_text2}>
                             <Typography component={'div'}>Forgot Password</Typography>
                             {errorMessage?<Alert className={classes.alertmessage} sx={{width:{lg:'84%',md:'100%',xs:'100%'}}} severity="error">{errorMessage}.</Alert>:
@@ -95,7 +95,7 @@ const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
                         </Box>
                     </Box>
                 </Grid>
-                {!isDektop&&<Grid item xs={12} lg={6} md={12} sx={{ background:'#F4FAFF' }}>
+                {!lsdesktop&&<Grid item xs={12} lg={6} md={12} sx={{ background:'#F4FAFF' }}>
                 <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                 <Divider /> 
                     <Property />

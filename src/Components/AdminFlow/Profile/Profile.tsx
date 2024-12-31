@@ -31,9 +31,9 @@ function Profile({classes,navigate}:IProps) {
     useEffect(() => {
       setProgress(60)
     }, []);
-    const isDeskTop=useMediaQuery((theme:Theme)=>theme.breakpoints.down('lg'))
+    const lsdesktop=useMediaQuery((theme:Theme)=>theme.breakpoints.down('lg'))
     const sellerprofileData=[
-        {id:1,primarytext:isDeskTop?'Profile':'Profile Information',secondarytext:'Change your Account information',icon:<PersonIcon className={classes.icon}/>},
+        {id:1,primarytext:lsdesktop?'Profile':'Profile Information',secondarytext:'Change your Account information',icon:<PersonIcon className={classes.icon}/>},
         {id:2,primarytext:'Password',secondarytext:'Change Your Password',icon:<RemoveRedEyeIcon className={classes.icon}/>},
         {id:3,primarytext:'My Locations',secondarytext:'Edit Or Change Your Location',icon:<Location className={classes.icon}/>}
       ]
@@ -54,7 +54,7 @@ function Profile({classes,navigate}:IProps) {
         <Grid container className={classes.flexBox}>
             <Grid item xs={12} md={12} lg={4} className={classes.profilebox}>
     
-        {isDeskTop?
+        {lsdesktop?
         <Fragment>
           {ProfileData.map((data)=>
           <Button key={data.id} size='small' className={classes.profilebtns} startIcon={data.icon} sx={{borderBottom:value===data.id?"1.5px solid rgb(7, 55, 98)":"none"}} onClick={()=>handleToggle(data)}>{data.primarytext}</Button>
@@ -73,7 +73,7 @@ function Profile({classes,navigate}:IProps) {
             )}
         </List>
         </Box>}
-        {isDeskTop?
+        {lsdesktop?
         <Dialog open={open}>
           <DialogActions>
             <Close sx={{color:'red'}} onClick={()=>setOpen(false)}/>

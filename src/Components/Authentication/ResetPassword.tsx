@@ -10,7 +10,7 @@ import { withRouter } from '../../Utils/withRouter';
 import { PasswordRegex } from '../../Utils/Validate';
 import { AppDispatch } from '../Redux/store/Store';
 type IProps={
-    isDektop:any,
+   lsdesktop:any,
     navigate:Function,
     classes:{
         [type:string]:string
@@ -86,7 +86,7 @@ class ResetPassword extends Component<IProps,IState> {
         const {classes}=this.props
         return (
             <Fragment>
-                {this.props.isDektop&&
+                {this.props.lsdesktop&&
             <Fragment>
               <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => this.props.navigate('/')} />
               <Divider />
@@ -94,8 +94,8 @@ class ResetPassword extends Component<IProps,IState> {
             }
              <Box className={classes.register_flex}>
                 <Grid container className={classes.gridcontainer}>
-                    <Grid item xs={12} lg={6} md={12} order={2}>    
-                    <Box sx={{height:this.props.isDektop?'70vh':'90vh'}} className={classes.register_conatiner}> 
+                    <Grid item xs={12} lg={6} md={12} order={2} >
+                    <Box sx={{height:this.props.lsdesktop?'70vh':'90vh'}} className={classes.register_conatiner}> 
                     <Box className={classes.register_leftsection_text1}>
                         <Typography component={'div'}>Reset your password</Typography>
                     </Box>
@@ -143,7 +143,7 @@ class ResetPassword extends Component<IProps,IState> {
                     </Box>
                     </Box>
                     </Grid>
-                    {!this.props.isDektop&&<Grid item xs={12} lg={6} md={12} sx={{background:'#F4FAFF'}}>
+                    {!this.props.lsdesktop&&<Grid item xs={12} lg={6} md={12} sx={{background:'#F4FAFF'}}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={()=>this.props.navigate('/')}/>
                     <Divider/>
                      <Property />

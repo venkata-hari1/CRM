@@ -3,7 +3,8 @@ import { flex, textTransform } from "../Common/Styles";
 export const Styles = (theme: Theme) => ({
     register_flex: {
         ...flex,      
-        overflowX:'hidden !important' as 'hidden'
+        overflowX:'hidden !important' as 'hidden',
+        overflowY:'hidden !important' as 'hidden',  
     },
     validate: {
         fontSize: '90% !important',
@@ -43,9 +44,8 @@ export const Styles = (theme: Theme) => ({
         height: 'auto !important'
     },
     gridcontainer: {
+        height:'fit-content !important' as 'fit-content',
         width: '100% !important',
-        height:'100vh',
-        // overflowY:'hidden !important' as 'hidden',
         [theme.breakpoints.down('lg')]: {
             width: '93% !important'
         }
@@ -64,6 +64,7 @@ export const Styles = (theme: Theme) => ({
     },
     otpverfication_otpcontainer: {
         ...flex,
+        padding:'10px',
         flexDirection: 'column !important' as 'column'
     },
     otpverfication_closeicon: {
@@ -91,13 +92,14 @@ export const Styles = (theme: Theme) => ({
         textAlign: 'center' as 'center',
         marginTop: '3.5%',
         fontWeight: '700',
+       
         fontSize: '100.00%',
         color: '#000929'
     },
     otpverfication_inputboxs: {
         ...flex,
         flexDirection:'column' as 'column',
-        width: '90%',
+        width: '100%',
         marginTop: '2%',
         marginLeft: '2% !important',
         [theme.breakpoints.down('lg')]: {
@@ -115,12 +117,18 @@ export const Styles = (theme: Theme) => ({
         marginTop: '3% !important'
     },
     otpverfication_resendotp: {
-        width: '100% !important',
-        marginTop: '2.5% !important',
-        marginBottom: '2.5% !important',
-        fontSize: '16px !important',
+        display:'flex',
+        width:'100% !important',
+       
+       justifyContent:'space-between',
+        marginTop:'2%',
+        '&>div':{
+        marginTop: '4% !important',
         opacity: '0.8 !important',
-        '&>span': {
+        },
+        '&>button': {
+            float:'left',
+            textTransform:'capitalize !important',
             color: '#1859F5',
             marginLeft: '5px'
         }
@@ -131,6 +139,7 @@ export const Styles = (theme: Theme) => ({
         marginTop: '5% !important',
         marginBottom: '3% !important',
         [theme.breakpoints.down('lg')]: {
+            marginLeft: '0.1% !important',
             width: '100% !important'
         },
         '&>div:nth-child(1)':{
@@ -154,6 +163,7 @@ export const Styles = (theme: Theme) => ({
         marginTop: '10% !important',
         marginBottom: '3% !important',
         [theme.breakpoints.down('lg')]: {
+            marginLeft: '0.1% !important',
             width: '100% !important'
         },
         '&>div:nth-child(1)': {

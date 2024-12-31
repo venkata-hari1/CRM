@@ -90,7 +90,7 @@ function CustomerTable({ classes, navigate, dispatch, selector }: IProps) {
         localStorage.setItem("page", JSON.stringify(page))
         setPage(page);
     };
-    const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
+    const lsdesktop = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
     const token = localStorage.getItem('token')
     return (
 
@@ -125,7 +125,7 @@ function CustomerTable({ classes, navigate, dispatch, selector }: IProps) {
                             aria-haspopup="true"
                             aria-expanded={open ? 'true' : undefined}
                             onClick={handleClick}
-                        >{isDesktop ? "" : "Filters"}</Button>
+                        >{lsdesktop ? "" : "Filters"}</Button>
                         <Menu
                             id="basic-menu"
                             anchorEl={anchorEl}

@@ -13,7 +13,7 @@ import { AppDispatch } from '../Redux/store/Store';
 import Circular from '../Common/Circular';
 import { EmailRegex, PasswordRegex, PhoneRegex, checkPhoneRegx } from '../../Utils/Validate';
 type IProps = {
-   isDektop:any,
+  lsdesktop:any,
     navigate: Function,
     classes: {
         [type: string]: string
@@ -25,7 +25,7 @@ type IState = {
     password: string,
 }
 
-const Login = ({ navigate, classes,isDektop }: IProps) => {
+const Login = ({ navigate, classes,lsdesktop }: IProps) => {
     const [display, setDisplay] = useState<boolean>(true);
     const [errorMessage, setErrorMessage] = useState<string>('')
     const [successMessage, setSuccessMessage] = useState<string>('')
@@ -105,7 +105,7 @@ const Login = ({ navigate, classes,isDektop }: IProps) => {
     return (
         <Fragment>
             <Circular open={view}/>
-            {isDektop&&
+            {lsdesktop&&
             <Fragment>
               <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => navigate('/')} />
               <Divider />
@@ -113,8 +113,8 @@ const Login = ({ navigate, classes,isDektop }: IProps) => {
             }
             <Box className={classes.register_flex}>
                 <Grid container className={classes.gridcontainer}>
-                    <Grid item xs={12} lg={6} md={12} order={2}>
-                        <Box sx={{height:isDektop?'70vh':'90vh'}} className={classes.register_conatiner}>
+                    <Grid item xs={12} lg={6} md={12} order={2} >
+                        <Box sx={{height:lsdesktop?'70vh':'90vh'}} className={classes.register_conatiner}>
                             <Box className={classes.register_leftsection_text1}>
                                 <Typography component={'div'}>Welcome to back</Typography>
 
@@ -162,7 +162,7 @@ const Login = ({ navigate, classes,isDektop }: IProps) => {
                             </Box>
                         </Box>
                     </Grid>
-                    {!isDektop&&<Grid item xs={12} lg={6} md={12} sx={{ background: '#F4FAFF' }}>
+                    {!lsdesktop&&<Grid item xs={12} lg={6} md={12} sx={{ background: '#F4FAFF' }}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                     <Divider />
                         <Property />

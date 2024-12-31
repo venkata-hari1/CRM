@@ -10,8 +10,10 @@ import { AppDispatch, RootState } from '../Redux/store/Store';
 import { connect } from 'react-redux';
 import ChangeEmail from './ChangeEmail';
 import Circular from '../Common/Circular';
+import Countdown from 'react-countdown';
 import { toast } from 'react-toastify';
 type IProps = {
+  Isdesktop:any,
   Auth: string
   navigate: Function
   value: string
@@ -22,13 +24,14 @@ type IProps = {
   handleClose: () => void,
   dispatch: AppDispatch
 }
-function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, dispatch }: IProps) {
+function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop }: IProps) {
   const [counter, setCounter] = useState<number>(59);
   const [otp, setOtp] = useState('');
-
+  const [key, setKey] = useState(0);
   const [open, setOpen] = useState<boolean>(false)
   const [isOpen, setIsOpen] = useState<boolean>(Open)
   const[view,setView]=useState<boolean>(false)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const handleSendOtp = (otp: string) => {
     setOtp(otp)
   };
@@ -38,6 +41,8 @@ function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, di
 
   }
   const handleResend = async () => {
+    setKey((prevKey) => prevKey + 1);
+    setIsButtonDisabled(true);
     toast('resend otp')
    
   }
@@ -50,13 +55,25 @@ function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, di
   useEffect(()=>{
     setIsOpen(Open);
   },[Open])
-
+  const renderer = ({ minutes, seconds, completed }: any) => {
+    if (completed) {
+      setIsButtonDisabled(false); // Enable button when timer expires
+      return <span>00:00</span>;
+    } else {
+      // Render the countdown in MM:SS format
+      return (
+        <span>
+          {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+        </span>
+      );
+    }
+  };
   return (
     <Fragment>
       <ChangeEmail open={open} handleCloseChangeEmail={handleCloseChangeEmail} />
       <Circular open={view}/>
       <Dialog open={isOpen}>
-        <Grid container sx={{ padding: '3%' }}>
+        <Grid container sx={{ padding: '10px' }}>
           <Grid item xs={8} md={8} lg={8}>
           <Box className={classes.otpverfication_headertext}>Verify your Email</Box>
            
@@ -83,13 +100,16 @@ function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, di
               renderSeparator={<span style={{ width: '20px' }}></span>}
               renderInput={(props) => <input {...props} />}
               inputStyle={{
-                width: "50px",
-                height: '50px',
+                width:"38px",
+                height:"38px",
                 border: '1px solid #9FC5E9',
                 borderRadius:"8px"
               }}
             />
-            <Box className={classes.otpverfication_resendotp}>Don’t receive the verification code?<Typography component={'span'} onClick={handleResend}>Resend code</Typography></Box>
+            <Box className={classes.otpverfication_resendotp}>
+            <Button onClick={handleResend} disabled={isButtonDisabled}>Resend code</Button>
+              <Box><Countdown key={key} date={Date.now() +  10 * 60 * 1000} renderer={renderer} /></Box>
+             </Box>
             <Button className={classes.otpverfication_verfiybtn} onClick={hanldeOpen1}>Verfiy</Button>
           </Box>
         </Box>
@@ -98,7 +118,7 @@ function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, di
   );
 }
 const MapToProps = (state: RootState) => ({
-  Auth: state.LandingReducer.auth
+  Auth: ''
 })
 const ConnectedToOtpVerification = connect(MapToProps)(OtpVerification)
 export default withRouter(withStyles(Styles)(ConnectedToOtpVerification))

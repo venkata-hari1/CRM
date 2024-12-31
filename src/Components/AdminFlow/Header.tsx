@@ -15,7 +15,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import { onMessage } from 'firebase/messaging';
 import { ToastSuccess } from '../../Utils/Validate';
 type IProps = {
-    name:string
+    lsdesktop:any,
+    name:string,
     sell:boolean,
     navigate:Function,
     classes: {
@@ -26,7 +27,7 @@ type IProps = {
     dispatch:AppDispatch
     window:()=>Window
 }
-function Header({name,navigate,classes,value,window,dispatch}:IProps) {
+function Header({name,navigate,classes,value,window,dispatch,lsdesktop}:IProps) {
     const [id,setId]=useState(1)
     const[value1,setValue1]=useState(false)
     const[display,setDisplay]=useState(false)
@@ -74,12 +75,12 @@ function Header({name,navigate,classes,value,window,dispatch}:IProps) {
         const role=localStorage.getItem('role')
         const token=localStorage.getItem('token')
         const container =window !== undefined ? () => window().document.body : undefined;
-        const isDektop=useMediaQuery((theme:Theme)=>theme.breakpoints.down('lg'))
+     
 
 
         return (
             <Fragment>
-                {isDektop&&<nav>
+                {lsdesktop&&<nav>
         <Drawer
           container={container}
           variant="temporary"
@@ -102,12 +103,12 @@ function Header({name,navigate,classes,value,window,dispatch}:IProps) {
             <Box className={classes.headerContainer}>
                 <Logout open={open} handleCancel={handleCancel}/>
                 <Grid container spacing={1} className={classes.gridContainer1}>
-                   <Grid item lg={role==="seller"?5.5:6} xs={isDektop?8:6} md={isDektop?8:6}>                 
+                   <Grid item lg={role==="seller"?5.5:6} xs={lsdesktop?8:6} md={lsdesktop?8:6}>                 
                         <Box className={classes.headerTitle}>{name}</Box>
                     </Grid>
                     {role==="seller"&&
                     <Fragment>
-                {isDektop?"":<Grid item lg={3} xs={4} md={3} >
+                {lsdesktop?"":<Grid item lg={3} xs={4} md={3} >
                    <Box className={role==="seller"?classes.btnsheader1:classes.btnsheader} sx={{float:'right'}}>
                     <Button size='small' onClick={handleSwitchBuyer}>Buyer</Button>
                     <Button size='small' className={classes.sellerBtnText}>Seller</Button>
@@ -115,14 +116,14 @@ function Header({name,navigate,classes,value,window,dispatch}:IProps) {
                    </Grid>}
                    </Fragment>
                    }
-                    <Grid item lg={6} xs={isDektop?4:5} md={isDektop?4:5}>
+                    <Grid item lg={6} xs={lsdesktop?4:5} md={lsdesktop?4:5}>
                         <Box className={classes.leftbixsection} sx={{width:{lg:'70%',xs:'100%',md:'100%'}}}>
                                 <Box className={classes.gridBox}>
                                     <Notifications123 onClick={handlebtns1} className={classes.notificationicon} cursor={"pointer"}/>
-                                    {isDektop?<Bar style={{cursor:'pointer'}} onClick={handleDrawerToggle}/>:<Button size='small'  onClick={handlebtns} startIcon={
+                                    {lsdesktop?<Bar style={{cursor:'pointer'}} onClick={handleDrawerToggle}/>:<Button size='small'  onClick={handlebtns} startIcon={
                                     <Box src={user?.data?.photo?`${user?.data?.photo}/${token}`:''} className={classes.headerimage} component={'img'}/>
                                     } className={classes.btn_icon} endIcon={<KeyboardArrowDownIcon className={classes.downIcon} sx={{whiteSpace:'nowrap !important'}}/>}>
-                                        {isDektop?"":user?.data?.name.length>6?`${user?.data?.name.slice(0,6)+"..."}`:user?.data?.name}
+                                        {lsdesktop?"":user?.data?.name.length>6?`${user?.data?.name.slice(0,6)+"..."}`:user?.data?.name}
                                     </Button>}
                                 </Box>    
                             <Fragment>
