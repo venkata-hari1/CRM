@@ -48,10 +48,9 @@ export const Styles = (theme: Theme) => ({
         height:'100vh',
         [theme.breakpoints.down('lg')]: {
             height:'fit-content !important',
-            width: '85% !important'
+            width: '86% !important'
         }
     },
-   
     register_conatiner: {
         ...flex,
         width: '100% !important',
