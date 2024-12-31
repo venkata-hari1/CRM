@@ -8,8 +8,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { withRouter } from '../../Utils/withRouter';
 import { AppDispatch, RootState } from '../Redux/store/Store';
 import { connect } from 'react-redux';
-import { JSX } from 'react/jsx-runtime';
-import { Otp_Verification, Send_Otp, Send_UpdateEmail_Otp, UpdateEmail_Verify } from '../Redux/Reducers/Authentication';
 import ChangeEmail from './ChangeEmail';
 import Circular from '../Common/Circular';
 import { toast } from 'react-toastify';
@@ -81,7 +79,7 @@ function OtpVerification({ classes, Auth, Open, value, handleClose, navigate, di
             <OtpInput
               value={otp}
               onChange={handleSendOtp}
-              numInputs={6}
+              numInputs={4}
               renderSeparator={<span style={{ width: '20px' }}></span>}
               renderInput={(props) => <input {...props} />}
               inputStyle={{

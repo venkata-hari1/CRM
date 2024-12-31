@@ -105,10 +105,16 @@ const Login = ({ navigate, classes,isDektop }: IProps) => {
     return (
         <Fragment>
             <Circular open={view}/>
+            {isDektop&&
+            <Fragment>
+              <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => navigate('/')} />
+              <Divider />
+            </Fragment>
+            }
             <Box className={classes.register_flex}>
                 <Grid container className={classes.gridcontainer}>
                     <Grid item xs={12} lg={6} md={12} order={2}>
-                        <Box className={classes.register_conatiner}>
+                        <Box sx={{height:isDektop?'70vh':'90vh'}} className={classes.register_conatiner}>
                             <Box className={classes.register_leftsection_text1}>
                                 <Typography component={'div'}>Welcome to back</Typography>
 
@@ -156,11 +162,11 @@ const Login = ({ navigate, classes,isDektop }: IProps) => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} lg={6} md={12} sx={{ background: isDektop?'white':'#F4FAFF' }}>
+                    {!isDektop&&<Grid item xs={12} lg={6} md={12} sx={{ background: '#F4FAFF' }}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                     <Divider />
-                        {!isDektop&&<Property />}
-                    </Grid>
+                        <Property />
+                    </Grid>}
                 </Grid>
             </Box>
         </Fragment>

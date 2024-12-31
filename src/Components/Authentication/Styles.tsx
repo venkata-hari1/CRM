@@ -53,7 +53,6 @@ export const Styles = (theme: Theme) => ({
    
     register_conatiner: {
         ...flex,
-        height:'90vh',
         width: '100% !important',
         flexDirection: 'column !important' as 'column'
     },
@@ -96,6 +95,8 @@ export const Styles = (theme: Theme) => ({
         color: '#000929'
     },
     otpverfication_inputboxs: {
+        ...flex,
+        flexDirection:'column' as 'column',
         width: '90%',
         marginTop: '2%',
         marginLeft: '2% !important',

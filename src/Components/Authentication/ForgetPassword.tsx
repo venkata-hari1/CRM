@@ -63,10 +63,16 @@ const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
         <Fragment>
              <Circular open={view}/>
             <OTPVerfication Open={open} handleClose={handleClose} />
+            {isDektop&&
+            <Fragment>
+              <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => navigate('/')} />
+              <Divider />
+            </Fragment>
+            }
         <Box className={classes.register_flex}>
             <Grid container className={classes.gridcontainer}>
                 <Grid item xs={12} lg={6} md={12} order={2}>
-                    <Box className={classes.register_conatiner}>
+                    <Box sx={{height:isDektop?'60vh':'90vh'}} className={classes.register_conatiner}>
                         <Box className={classes.register_leftsection_text2}>
                             <Typography component={'div'}>Forgot Password</Typography>
                             {errorMessage?<Alert className={classes.alertmessage} sx={{width:{lg:'84%',md:'100%',xs:'100%'}}} severity="error">{errorMessage}.</Alert>:
@@ -89,11 +95,11 @@ const ForgetPassword = ({ navigate, classes,dispatch,isDektop }:IProps) => {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} lg={6} md={12} sx={{ background: isDektop?'white':'#F4FAFF' }}>
+                {!isDektop&&<Grid item xs={12} lg={6} md={12} sx={{ background:'#F4FAFF' }}>
                 <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={() => navigate('/')} />
                 <Divider /> 
-                    {!isDektop&&<Property />}
-                </Grid>
+                    <Property />
+                </Grid>}
             </Grid>
         </Box>
         </Fragment>

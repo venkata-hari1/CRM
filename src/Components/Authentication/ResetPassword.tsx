@@ -85,10 +85,17 @@ class ResetPassword extends Component<IProps,IState> {
     render() {
         const {classes}=this.props
         return (
+            <Fragment>
+                {this.props.isDektop&&
+            <Fragment>
+              <Box src={Logo} component={'img'} sx={{marginLeft:'20px !important',marginTop:'15px !important'}} className={classes.register_headerlogo} onClick={() => this.props.navigate('/')} />
+              <Divider />
+            </Fragment>
+            }
              <Box className={classes.register_flex}>
                 <Grid container className={classes.gridcontainer}>
                     <Grid item xs={12} lg={6} md={12} order={2}>    
-                    <Box className={classes.register_conatiner}> 
+                    <Box sx={{height:this.props.isDektop?'70vh':'90vh'}} className={classes.register_conatiner}> 
                     <Box className={classes.register_leftsection_text1}>
                         <Typography component={'div'}>Reset your password</Typography>
                     </Box>
@@ -136,13 +143,14 @@ class ResetPassword extends Component<IProps,IState> {
                     </Box>
                     </Box>
                     </Grid>
-                    <Grid item xs={12} lg={6} md={12} sx={{background:this.props.isDektop?'white':'#F4FAFF'}}>
+                    {!this.props.isDektop&&<Grid item xs={12} lg={6} md={12} sx={{background:'#F4FAFF'}}>
                     <Box src={Logo} component={'img'} className={classes.register_headerlogo} onClick={()=>this.props.navigate('/')}/>
                     <Divider/>
-                     {!this.props.isDektop&&<Property />}
-                    </Grid>
+                     <Property />
+                    </Grid>}
                 </Grid>
                 </Box>
+             </Fragment>   
         );
     }
 }
