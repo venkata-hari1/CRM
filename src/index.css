@@ -1,0 +1,114 @@
+
+body {
+  margin: 0;
+  font-family:'Plus Jakarta Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden !important;
+  font-size: calc(.3em + 0.6vw) !important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none !important; 
+  margin: 0 !important; 
+}
+.recharts-legend-item-text{
+  text-transform: capitalize !important;
+}
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
+  color:#073762 !important
+}
+
+@media screen and (min-resolution: 120dpi) and (max-resolution: 130dpi) {
+ 
+}
+
+
+@media screen and (max-resolution: 1dppx) {
+  body{
+    font-size: calc(.5em + 0.6vw) !important;
+  }
+  .css-14sza3e-MuiStepLabel-root{
+    margin-top:18px !important;
+  }
+  .css-1pe7n21-MuiStepConnector-root{
+    margin-top:8px !important
+  }
+  .MuiTextField-root input{
+    height:3vh !important
+  }
+  .MuiButton-root button{
+    height:3.2vh !important
+  }
+  .MuiTextField-root input::placeholder {
+    
+    font-size:100% !important;
+   
+  }
+  /* .MuiTextField-root input{
+    height:3.2vh !important
+  }
+  .MuiSelect-root{
+    height:3.2vh !important
+  }
+  .MuiButton-root button{
+    height:3.2vh !important
+  } */
+}
+.GoogleMap{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.description{
+  margin-top:5px !important;
+  border:1px solid grey;
+  padding:10px !important;
+  font-size:90% !important;
+  font-weight:800 !important
+  }
+.autocomplete-dropdown-container{
+  width:98% !important
+}
+.mapStyles{
+ width:100% !important;
+}
+.css-1lx7uiz-MuiModal-root-MuiDialog-root{
+  z-index: 3000 !important;
+}
+.css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input{
+  font-size:11px !important;
+  overflow-y: hidden !important;
+}
+
+
+.Google_map_conatiner{
+  position:  relative !important;
+  border-radius: 20px;
+  overflow: hidden;
+  height:40vh;
+  margin-top:3%;
+  margin-bottom: 3%;
+
+}
+.Google_map_container{
+  position:  relative !important;
+  border-radius: 20px;
+  overflow: hidden;
+  height:110vh;
+  margin-top:3%;
+  margin-bottom: 3%;
+}
+.css-1hv8oq8-MuiStepLabel-label{
+  color:#073762 !important;
+  font-size: 105% !important;
+  font-weight: 900 !important;
+  margin-left: 2% !important;
+}
+@media(max-width:830px){
+  body{
+    overflow-x: hidden !important;
+    font-size: calc(0.7em + 0.5vw) !important;
+  }
+}
+
