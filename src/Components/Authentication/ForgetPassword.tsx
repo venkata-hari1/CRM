@@ -80,14 +80,14 @@ const ForgetPassword = ({ navigate, classes,dispatch,lsdesktop }:IProps) => {
                         </Box>
                         <Box className={classes.register_leftsection_formcontroler}>
                             <FormControl fullWidth>
-                                <Typography component={'div'}>Email</Typography>
-                                <TextField placeholder='Enter Registered Email' sx={{background:'#F4FAFF'}} name='email' value={email} onChange={handleOtpSendFunChange} InputProps={{
+                                <Typography component={'div'} >Email</Typography>
+                                <TextField placeholder='Enter Registered Email' sx={{borderRadius:"15px"}} 
+                                name='email' value={email} onChange={handleOtpSendFunChange} InputProps={{
                                     classes:{
-                                        input:classes.input,
-                                        notchedOutline:classes.notchedOutline
+                                        input:classes.input
                                     },
 
-                                    // className:classes.inputFields
+                                    className:classes.inputFields
                                 }} />
                                 {errorEmail&&<Typography className={classes.validate}>{errorEmail}</Typography>}
                                 <Button className={!IsFormComplete()?classes.register_signup12:classes.register_login} disabled={!IsFormComplete()} onClick={handleSendOtp}>Send OTP</Button>

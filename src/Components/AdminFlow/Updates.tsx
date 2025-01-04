@@ -3,13 +3,12 @@ import Header from './Header'
 import TextEditor from './TextEditor'
 import { Box, Button } from '@mui/material'
 import { withStyles } from '@mui/styles'
-import { Styles } from './PrivacyPolicy'
+import { Styles } from './UpdatesStyles'
 import { AppDispatch } from '../Redux/store/Store'
 import { TermsAndConditionController, TermsAndConditionData, UpdateTermsAndConditionController } from '../Redux/Reducers/Property'
 import { withRouter } from '../../Utils/withRouter'
-import {ReactComponent as Publishicon} from '../Common/assets/images/Publishicon.svg'
-// import TermsAndCondition from '../CustomerFlow/CustomerProfile/TermsAndCondition'
 import { ToastError, ToastSuccess } from '../../Utils/Validate'
+import { Email, WhatsApp } from '@mui/icons-material'
 type IProps={
     classes:{
         [type:string]:string
@@ -85,28 +84,20 @@ else{
   return (
     <Fragment>
   
-      <Header name='Terms & Conditions' />
-      {value?
-      <Box sx={{marginTop:'2%'}}>
-        {/* <TermsAndCondition admin={true} handlegetTerms={handlegetTerms} termsandcondition1={termsandcondition}/> */}
-      </Box>:
+      <Header name='Updates' />
       <Box className={classes.mainroot}>
       <Box className={classes.root}>
         <Box className={classes.conatiner}>
-        <TextEditor about={about} handlegetData={handlegetData} value='Enter Terms And Condition'/>
+        <TextEditor about={about} handlegetData={handlegetData} value='Enter Updates'/>
         </Box>
         <Box className={classes.btncontainer}>
       <Box className={classes.btns}>
-          {value || value===undefined?
-            <Button onClick={handlePublish} sx={{color:'white !important'}} startIcon={<Publishicon/>}>Publish</Button>:
-            <Button onClick={HandleUpdate}>Update</Button>
-            }
-        
+            <Button onClick={handlePublish} sx={{color:'white !important'}} startIcon={<WhatsApp/>} color='success'>Whatsapp</Button>
+            <Button onClick={handlePublish} sx={{color:'white !important'}} startIcon={<Email/>} color='primary'>email</Button>
         </Box>
       </Box>
       </Box>
-     
-      </Box>}
+      </Box>
     </Fragment>
   )
 }

@@ -3,19 +3,18 @@ import { withStyles } from '@mui/styles';
 import { withRouter } from '../../../../Utils/withRouter';
 import { Box, Button, Grid } from '@mui/material';
 import { ReactComponent as Exports } from '../../../Common/assets/images/export.svg';
-import { CSVLink } from 'react-csv';
 import Filter from '../../Filters/Filters';
 import { AppDispatch } from '../../../Redux/store/Store';
-import { ReactComponent as FilterIcon } from '../../../Common/assets/images/Filter1.svg';
 import { Styles } from './MUIStyles';
-
-
+import { Add } from '@mui/icons-material';
+import { Dailog_Box } from '../../../Redux/Reducers/LandingReducer'
 type IProps = {
-    handleOpen1:()=>void,
+    lsdesktop:any,
+    handleOpen1: () => void,
     classes: {
         [type: string]: string;
     };
-    data:{
+    data: {
         status: string;
         price: number;
         updatedAt: number;
@@ -26,26 +25,27 @@ type IProps = {
         userName: string,
     }[]
     navigate: Function;
-    hadleOpenFilter:()=>void
+    hadleOpenFilter: () => void
     dispatch: AppDispatch;
     selector: string | unknown | null;
 };
 
 
 
-function Filters({ classes,data,handleOpen1,hadleOpenFilter }: IProps) {
+function Filters({ classes, dispatch, handleOpen1,lsdesktop}: IProps) {
 
-
+    const hadleClient = () => {
+        dispatch(Dailog_Box(true))
+    }
     return (
 
-        <Box className={classes.filter}>     
-              <Filter open1={false}/>
-                <Button startIcon={<FilterIcon />} className={classes.exports1} onClick={hadleOpenFilter}>Filter</Button>
-                
-                    <Button className={classes.exports}   onClick={handleOpen1} startIcon={<Exports />}>
-                        Exports
-                    </Button>
-              
+        <Box className={classes.filter} sx={{marginBottom:lsdesktop?"10px":""}}>
+            <Filter open1={false} />
+            {lsdesktop?<Button size='small' variant='outlined' sx={{marginRight:'5px'}} onClick={hadleClient}><Add/></Button>:
+            <Button startIcon={<Add />} className={classes.exports1} onClick={hadleClient}>Add</Button>}
+            {lsdesktop?<Button size='small' variant='outlined' onClick={handleOpen1}><Exports /></Button>:
+            <Button className={classes.exports} onClick={handleOpen1} startIcon={<Exports />}>Exports</Button>}
+
         </Box>
     )
 }

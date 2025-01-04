@@ -19,11 +19,18 @@ export const Styles=(theme:Theme)=>({
     },
     profileinformation:{
         ...flex,
-        flexDirection:'column !important' as 'column'
+        width:'80%',
+        padding:'10px',
+        flexDirection:'column !important' as 'column',
+        [theme.breakpoints.down('lg')]:{
+            width:'100%'
+        }
+       
     },
     listitems:{
-        marginLeft:'1% !important',
-        width:'90% !important'
+    
+        width:'100% !important',
+      
     },
     formRadioGroup:{
         width:'100% !important',
@@ -179,12 +186,14 @@ export const Styles=(theme:Theme)=>({
         marginLeft:'6px !important'
     },
     input:{
-        height:'2vh !important',
+        height:'1.5vh !important',
         '&::placeholder':{
             fontSize:'86% !important'
         }
     },
     textFiled:{
+        borderRadius:'10px !important',
+        border:'1px solid #9FC5E9 !important',
         marginTop:'2.5% !important',
         background:'#F4FAFF !important'
     },
@@ -312,5 +321,8 @@ export const Styles=(theme:Theme)=>({
         fontSize:'80% !important',
         borderRadius:'8px !important'
         
+    },
+    profile_sideimage:{
+        width:'83%'
     }
 })

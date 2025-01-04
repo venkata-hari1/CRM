@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material";
-import { ManRopeFont, flex, textTransform } from "../../Common/Styles";
+import { flex, textTransform } from "../../Common/Styles";
 const Button={
     ...textTransform,
     fontWeight:'900 !important',

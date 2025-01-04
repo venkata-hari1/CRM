@@ -1,7 +1,6 @@
-import { Alert, Box, Button, FormControl, List, ListItem, ListItemIcon, ListItemText, TextField, Typography } from '@mui/material'
+import { Alert, Box, Button, FormControl,TextField, Typography,Grid } from '@mui/material'
 import React, { Fragment, useState } from 'react'
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '../../Common/assets/images/EditIcon.png'
+import Profile_SideImage from '../../Common/assets/images/123.png'
 import { withStyles } from '@mui/styles';
 import { Styles } from './Styles';
 import { PasswordRegex } from '../../../Utils/Validate';
@@ -125,6 +124,8 @@ function UpdatePassword({ classes, dispatch }: IProps) {
   }
   return (
     <Fragment>
+       <Grid container>
+       <Grid item xs={12} md={12} lg={6}>
        <Box className={classes.profileinformation}>
        <Box className={classes.listitems}>
           <Box className={classes.personalinformation} sx={{marginLeft:'0.5%'}}>Change Password</Box>
@@ -172,6 +173,11 @@ function UpdatePassword({ classes, dispatch }: IProps) {
       </FormControl>
       </Box>
       </Box>
+      </Grid>
+      <Grid item xs={12} md={12} lg={6}>
+                <Box src={Profile_SideImage} component={'img'} className={classes.profile_sideimage}/>
+            </Grid>
+      </Grid>
     </Fragment>
   )
 }

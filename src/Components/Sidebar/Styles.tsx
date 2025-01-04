@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material";
-import { ManRopeFont, flex, textTransform } from "../Common/Styles";
+import { flex, textTransform } from "../Common/Styles";
 
 export const Styles=(theme:Theme)=>({
     boxstyles:{
@@ -7,19 +7,26 @@ export const Styles=(theme:Theme)=>({
         position:'fixed !important' as 'fixed',
         zIndex:'900 !important',
         height:'100vh',
-        padding:"10px !important"
+         width:'15.5% !important',
+        [theme.breakpoints.down('lg')]:{
+            backgroundColor:'#F4FAFF !important',
+            width:'72% !important',
+            padding:'8px'
+        }
+        // padding:"10px !important"
     },
     logout:{
         ...flex,
-        width:'60% !important',
+        position:'absolute !important' as 'absolute',
+        bottom:'0px !important',
+        marginBottom:'30px !important',
+        width:'95% !important',
         fontWeight:'800 !important',
-        background:'#100A55 !important',
-        fontSize:'80.00% !important',
+        background:'#073762 !important',
         color:'white !important',
         ...textTransform,
-        marginTop:'2% !important',
-        marginBottom:'12.5px !important',
-        marginLeft:'20px !important'
+   
+     
     },
     header_logo:{
         display:'flex !important',
@@ -35,21 +42,20 @@ export const Styles=(theme:Theme)=>({
         marginTop:'2% !important',
     },
     sidebartext:{
-        fontFamily:'"Manrope", sans-serif !important',
         color:'#737787 !important',
         fontSize:'100% !important'
     },
     sidebartext1:{
-        fontFamily:'"Manrope", sans-serif !important',
         color:'white !important',
         fontSize:'100% !important'
     },
 
     mainlistitems1:{
-        borderRadius:'12px !important',
+        borderRadius:'8px !important',
+        width:'95% !important',
+        height:'6vh !important',
         background:'#073762 !important',
         color:'white !important',
-        fontWeight:'900 !important',
         '@media screen and (max-resolution: 1dppx) ':{
             marginTop:'4% !important',
         },

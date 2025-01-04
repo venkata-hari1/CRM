@@ -1,10 +1,8 @@
-import React, { Fragment, useEffect, useState,version } from 'react';
-import { Alert, Box, Button, Divider, FormControl, Grid, TextField, Theme, Typography, useMediaQuery } from '@mui/material';
+import React, { Fragment, useState } from 'react';
+import { Alert, Box, Button, Divider, FormControl, Grid, TextField,Typography} from '@mui/material';
 import Logo from '../Common/assets/images/logo1.png';
 import { Styles } from './Styles';
 import { withStyles } from '@mui/styles';
-import { deviceType } from 'react-device-detect';
-import { Link } from 'react-router-dom';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import Property from './AuthenticationRightSection';
@@ -44,8 +42,8 @@ const Login = ({ navigate, classes,lsdesktop }: IProps) => {
     
 
     const handleLogin = async () => {
-      // setView(true)
-      // navigate('/admin/dashboard') 
+      setView(true)
+      navigate('/admin/clients') 
     };
     const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;

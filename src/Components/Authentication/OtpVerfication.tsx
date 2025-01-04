@@ -13,6 +13,7 @@ import Circular from '../Common/Circular';
 import Countdown from 'react-countdown';
 import { toast } from 'react-toastify';
 type IProps = {
+  pathname:any,
   Isdesktop:any,
   Auth: string
   navigate: Function
@@ -24,7 +25,7 @@ type IProps = {
   handleClose: () => void,
   dispatch: AppDispatch
 }
-function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop }: IProps) {
+function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop, pathname }: IProps) {
   const [counter, setCounter] = useState<number>(59);
   const [otp, setOtp] = useState('');
   const [key, setKey] = useState(0);
@@ -39,6 +40,9 @@ function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop 
  
     navigate('/resetpassword')
 
+  }
+  const hanldeUpdate=()=>{
+    handleClose()
   }
   const handleResend = async () => {
     setKey((prevKey) => prevKey + 1);
@@ -75,7 +79,7 @@ function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop 
       <Dialog open={isOpen}>
         <Grid container sx={{ padding: '10px' }}>
           <Grid item xs={8} md={8} lg={8}>
-          <Box className={classes.otpverfication_headertext}>Verify your Email</Box>
+          <Box className={classes.otpverfication_headertext}>{pathname==='/admin/settings'?'Update your Email':'Verify your Email'}</Box>
            
           </Grid>
           <Grid item xs={4} md={4} lg={4}>
@@ -91,7 +95,7 @@ function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop 
             <Typography color="blue" ml={"2px"} fontSize={"14px"} component={"div"} onClick={handleClose}> Change Email</Typography>
             </Box>
           </Box>
-          <Box className={classes.otpverfication_middletext2}>Enter code received on your {Auth === "updateemail"?"updated":"registered"} Email</Box>
+          <Box className={classes.otpverfication_middletext2}>Enter code received on your {pathname==='/admin/settings'?"updated":"registered"} Email</Box>
           <Box className={classes.otpverfication_inputboxs}>
             <OtpInput
               value={otp}
@@ -110,7 +114,8 @@ function OtpVerification({ classes, Auth, Open,handleClose, navigate, Isdesktop 
             <Button onClick={handleResend} disabled={isButtonDisabled}>Resend code</Button>
               <Box><Countdown key={key} date={Date.now() +  10 * 60 * 1000} renderer={renderer} /></Box>
              </Box>
-            <Button className={classes.otpverfication_verfiybtn} onClick={hanldeOpen1}>Verfiy</Button>
+            {pathname==='/admin/settings'?<Button className={classes.otpverfication_verfiybtn} onClick={hanldeUpdate}>Update</Button>:
+            <Button className={classes.otpverfication_verfiybtn} onClick={hanldeOpen1}>Verfiy</Button>}
           </Box>
         </Box>
       </Dialog>

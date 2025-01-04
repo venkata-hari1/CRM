@@ -1,10 +1,12 @@
 import { Theme } from '@emotion/react'
 import { Close } from '@mui/icons-material'
 import { Box, Button, Dialog, DialogActions, DialogContent, Divider } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { withStyles } from '@mui/styles'
 import { textTransform } from './Styles'
 import { withRouter } from '../../Utils/withRouter'
+import { AppDispatch } from '../Redux/store/Store'
+import {  Value } from '../Redux/Reducers/LandingReducer'
 export const Styles=(theme:Theme)=>({
   dailogaction:{
     padding:'15px !important',
@@ -44,30 +46,49 @@ export const Styles=(theme:Theme)=>({
   }
 })
 type IProps={
+  dataId:number,
+  selector: {
+    LandingReducer:{
+      status:string,
+      store_id:any,
+      value:number[]
+    }
+  },
+  handleOpen:(t:number)=>void
+  name:string,
   navigate:Function
   open:boolean
   handleCancel:()=>void
   classes:{
     [type:string]:string
-  }
+  },
+  dispatch:AppDispatch
 }
-function Logout({classes,open,navigate,handleCancel}:IProps) {
+function Logout({classes,open,navigate,handleCancel,name,dispatch,selector,dataId}:IProps) {
+  const value=selector.LandingReducer.value
+  const id=selector.LandingReducer.store_id
   const handleLogout=()=>{
-    setTimeout(()=>{
-      window.location.reload()
-    },500)
+    if(name==='statusbtn'){
+     dispatch(Value(id))
+     setTimeout(()=>{
+      handleCancel()
+     },300)
+    }
+    else{
     localStorage.clear()
     navigate('/')
+    }
 }
+const isActive=value.includes(dataId)
   return (
     <Dialog open={open} sx={{padding:'10px'}}>
         <DialogActions className={classes.dailogaction}>
-           <Box className={classes.title}>Logout</Box>
+           <Box className={classes.title}>{name==='statusbtn'?"Close Project ?":"Logout"}</Box>
            <Close sx={{fontSize:'120.00%'}} onClick={handleCancel}/>
         </DialogActions>
         <Divider/>
         <DialogContent sx={{width:'300px'}}>
-            <Box className={classes.dailogcontent}>Are you sure you want to logout?</Box>
+            <Box className={classes.dailogcontent}>Are you sure want to {name==='statusbtn'?isActive?"Close Project":"Active Project":"logout"}?</Box>
             <Box className={classes.btns}>
                 <Button onClick={handleLogout}>Yes, I want to</Button>
                 <Button onClick={handleCancel}>Cancel</Button>

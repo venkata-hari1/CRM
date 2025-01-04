@@ -10,7 +10,6 @@ export const textTransform={
     textTransform:'capitalize !important' as 'capitalize'
 }
 const Icon={
-    fontFamily:'"Jost", sans-serif !important',
     fontWeight:'500 !important',
     color:'#414141 !important',
     fontSize:'95% !important',
@@ -257,10 +256,8 @@ width:"6vw !important",
         color:'#1A202C !important'
     },
     details:{
-        ...textTransform,
-        fontWeight:'900 !important',
-        fontSize:'85% !important',
-        color:'#1A202C !important',
+        width:'80% !important',
+        color:'white !important',
         border: '1px solid #3A52AA59 !important'
     },
     deleteicon: {
@@ -269,6 +266,15 @@ width:"6vw !important",
         fontSize: '100% !important',
         marginTop: '35px !important',
 
+    },
+    btncontainer:{
+        width:'80%',
+        display:'grid !important',
+        gridTemplateColumns:'33% 33% 33%',
+        gridGap:'5px',
+        [theme.breakpoints.down('lg')]:{
+            width:'100%'
+        }
     },
     btns: {
         ...textTransform,
@@ -307,8 +313,12 @@ width:"6vw !important",
     textFiled: {
         marginTop: '2% !important',
         width: '55% !important',
+        border: '1px solid #9FC5E9 !important',
+        borderRadius:'8px !important',
+        background:'#F4FAFF !important',
         marginBottom: '2% !important',
         [theme.breakpoints.down('lg')]:{
+            marginTop: '0px !important',
             width:'100% !important'
         }
     },

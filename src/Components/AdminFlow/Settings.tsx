@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Header from './Header'
-import Settings from './Table/Settings/Settings'
+import Settings from './Settings/Settings'
 import { withRouter } from '../../Utils/withRouter'
 import { Box, Theme } from '@mui/material'
 import { withStyles } from '@mui/styles'

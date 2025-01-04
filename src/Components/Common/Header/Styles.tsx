@@ -163,7 +163,7 @@ export const Styles=(theme:Theme)=>({
     borderBottom:'1px solid #9fc5e933 !important'
   },
   headerTitle:{
-    fontFamily:'"Manrope", sans-serif !important',
+    
     fontSize:'180% !important',
     fontWeight:'900 !important',
   },
@@ -174,9 +174,9 @@ export const Styles=(theme:Theme)=>({
     width:'95% !important',
   },
   gridContainer1:{
-  width:'100% !important',
+  width:'97% !important',
   alignItems:"center !important",
-  padding:".5% 0 .5% 3%!important",
+  // padding:".5% 0 .5% 3%!important",
   [theme.breakpoints.down('lg')]:{
     width:'99% !important'
   }
@@ -274,7 +274,7 @@ export const Styles=(theme:Theme)=>({
     background:'white !important'
   },
   btn_icon:{
-    maxWidth:"155px !important",
+    // maxWidth:"155px !important",
     padding: "8px !important",
     border:'1px solid #E0DEF7 !important',
     borderRadius: '1000px !important',
@@ -405,7 +405,7 @@ export const Styles=(theme:Theme)=>({
     display: 'flex',
     marginTop: '12px !important',
     '&>div': {
-      fontFamily:"'Plus Jakarta Sans', sans-serif",
+
       fontWeight:'800',
       color:'#000929',
       display:'flex',
@@ -418,7 +418,6 @@ export const Styles=(theme:Theme)=>({
     alignItems:"center !important",
     marginLeft:'30px !important',
     '&>div': {
-      fontFamily:"'Plus Jakarta Sans', sans-serif",
       fontWeight:'800',
       color:'#000929',
       display:'flex',
@@ -438,7 +437,6 @@ export const Styles=(theme:Theme)=>({
     },
     '&>a':{
     '&>button':{
-      fontFamily:"'Plus Jakarta Sans', sans-serif",
       fontWeight:'1000',
       fontSize:'96%',
       padding:'8px !important',

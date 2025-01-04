@@ -1,5 +1,5 @@
 import { Theme } from "@mui/material";
-import { flex, textTransform } from "../../../Common/Styles";
+import { flex, textTransform } from "../../Common/Styles";
 
 export const Styles=(theme:Theme)=>({
     validate:{
@@ -109,7 +109,7 @@ export const Styles=(theme:Theme)=>({
     },
     verify:{
         ...textTransform,
-        fontSize:'75% !important',
+        fontSize:'100% !important',
         fontWeight:'900 !important',
         color:'#073762 !important'
     },
@@ -234,5 +234,8 @@ export const Styles=(theme:Theme)=>({
             marginTop:'2%',
             lineHeight:'25px'
         }
+    },
+    profile_sideimage:{
+        width:'83%'
     }
 })

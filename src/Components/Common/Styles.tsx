@@ -4,9 +4,7 @@ export const flex={
     alignItems:'center',
     alignContent:'center'
 }
-export const fontFamily={
-    fontFamily: "'Plus Jakarta Sans', sans-serif !important",
-}
+
 export const textTransform={
     textTransform:'capitalize !important' as 'capitalize'
 }
@@ -30,7 +28,4 @@ export const fontSize_28px={
 }
 export const fontSize_100prc={
     fontSize:'100% !important'
-}
-export const ManRopeFont={
-    fontFamily:'"Manrope", sans-serif !important'
 }

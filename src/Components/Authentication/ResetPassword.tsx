@@ -106,13 +106,14 @@ class ResetPassword extends Component<IProps,IState> {
                     <Box className={classes.register_leftsection_formcontroler}>
                     <FormControl fullWidth>
                         <Typography component={'div'}>New Password</Typography>
-                        <TextField placeholder='Enter Password' 
+                        <TextField placeholder='Enter Password' sx={{borderRadius:"15px"}}
                         onChange={this.handlePasswordChangeFun}
                         name='newPassword' 
                         value={this.state.newPassword} 
                         type={this.state.display?'text':'password'} 
                         InputProps={{
                             classes: { input: classes.input},
+                            className:classes.inputFields,
                             endAdornment:(
                             <Fragment>
                             {this.state.display?<RemoveRedEyeIcon className={classes.register_muiicon} onClick={()=>this.setState({display:!this.state.display})}/>:
@@ -128,9 +129,10 @@ class ResetPassword extends Component<IProps,IState> {
                        </Box>
                        <Typography component={'div'}></Typography>
                        <Typography component={'div'}>Repeat New Password</Typography>
-                       <TextField placeholder='Enter Password' name='confirmPassword' value={this.state.confirmPassword} onChange={this.handlePasswordChangeFun} type={this.state.display?'text':'password'} 
+                       <TextField placeholder='Enter Password' name='confirmPassword' sx={{background:'#F4FAFF',borderRadius:"15px"}} value={this.state.confirmPassword} onChange={this.handlePasswordChangeFun} type={this.state.display?'text':'password'} 
                        InputProps={{
                         classes: { input: classes.input},
+                        className:classes.inputFields,
                         endAdornment:(
                             <Fragment>
                             {this.state.display?<RemoveRedEyeIcon className={classes.register_muiicon} onClick={()=>this.setState({display:!this.state.display})}/>:

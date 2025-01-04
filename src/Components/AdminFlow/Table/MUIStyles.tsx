@@ -105,7 +105,6 @@ export const Styles = (theme: Theme) => ({
                 },
                 '&>button:nth-child(1)': {
                     fontWeight:'900',
-                    fontFamily:'"Manrope", sans-serif',
                     color: '#1A202C !important'
                 },
                 '&>button:nth-child(2)': {

@@ -17,7 +17,10 @@ type IProps = {
     addreesdata: [],
     loading: boolean,
     userNotifications:[],
-    links:{}
+    links:{},
+    dailogbox:boolean,
+    store_id:number[],
+    value:any
 }
 const initialState: IProps = {
     userNotifications:[],
@@ -34,7 +37,10 @@ const initialState: IProps = {
     getSalesData: {},
     activestep: 0,
     loading: false,
-    links:{}
+    links:{},
+    dailogbox:false,
+    store_id:[],
+    value:[],
 }
 export const GetLinks = createAsyncThunk(
     "GetLinks",
@@ -329,6 +335,24 @@ export const LandingSlice = createSlice({
     name: 'LandingSlice',
     initialState,
     reducers: {
+          Store_Id: (state:any, action) => {
+            const id = action.payload;
+  
+            // Check if the ID exists in the store_id array
+            if (state.store_id.includes(id)) {
+              // Remove the ID if it exists
+              state.store_id = state.store_id.filter((item: any) => item !== id);
+            } else {
+              // Add the ID if it does not exist
+              state.store_id.push(id);
+            }
+          },
+          Value: (state, action) => {
+            state.value = [...state.store_id];
+          },
+        Dailog_Box:(state,action)=>{
+            state.dailogbox=action.payload
+        },
         GetSalesData: (state, action) => {
             state.getSalesData = action.payload
         },
@@ -408,5 +432,5 @@ export const LandingSlice = createSlice({
         })
     }
 })
-export const { getPersonalDetails, GetSalesData, getProfileStep, getProfileId, getActiveSteps, getData, getId, AdminId, getAuth, getProfile } = LandingSlice.actions
+export const {Value,Store_Id, Dailog_Box,getPersonalDetails, GetSalesData, getProfileStep, getProfileId, getActiveSteps, getData, getId, AdminId, getAuth, getProfile } = LandingSlice.actions
 export default LandingSlice.reducer
