@@ -49,10 +49,12 @@ function Header({ name,classes, window, lsdesktop }: IProps) {
             keepMounted: true,
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block" },
             "& .MuiDrawer-paper": {
+              padding:'10px',
               boxSizing: "border-box",
-              width: 300,
+              background:'#F4FAFF',
+              width:'80%',
             },
           }}
         >

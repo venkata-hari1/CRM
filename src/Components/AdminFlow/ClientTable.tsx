@@ -12,6 +12,7 @@ import Header from './Header';
 import Logout from '../Common/Logout';
 import { Dailog_Box, Store_Id } from '../Redux/Reducers/LandingReducer';
 type IProps = {
+  lsdesktop:any,
   classes: {
     [type: string]: string;
   };
@@ -57,7 +58,7 @@ const dummydata=[
   {id:2,clientname:'Sourva',projectname:'Harboleaf',startdate:'10-11-2024',deadline:'10-11-2024',status:'Active'},
   {id:3,clientname:'Naresh Mendu',projectname:'CRM',startdate:'10-11-2024',deadline:'10-11-2024',status:'Close'},
 ]
-function PropertyTable({ classes,dispatch,selector,navigate}: IProps) {
+function PropertyTable({ classes,dispatch,selector,navigate,lsdesktop}: IProps) {
   const[open,setOpen]=React.useState(false)
 const pagination = (e: React.ChangeEvent<unknown>, page: number) => {
 
@@ -85,9 +86,9 @@ const value:any=selector?.LandingReducer?.value
       <AddClients/>
       <Box className={classes.propertyMaingridcontainer}>
         <Grid container className={classes.propertygridcontainer}>
-          <Grid item xs={7.5} md={7.5} lg={8}>
+          <Grid item xs={12} md={12} lg={8}>
             <TextField
-              size='small'
+              size={!lsdesktop?'small':'medium'}
               placeholder="Search With Project Name.."
               className={classes.textFiled}
               InputProps={{
@@ -96,7 +97,7 @@ const value:any=selector?.LandingReducer?.value
               }}
             />
           </Grid>
-          <Grid xs={4.5} md={4.5} lg={4}>
+          <Grid xs={12} md={12} lg={4}>
           <Filter/>
           </Grid>
         </Grid>

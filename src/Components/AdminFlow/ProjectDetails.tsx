@@ -80,26 +80,26 @@ class ProjectDetails extends Component<IProps> {
                             <Grid xs={12} md={12} lg={3}>
                                 <Box className={classes.slider_griditem3}>
                                     <Typography component={'div'}>Client Name</Typography>
-                                    <Typography component={'div'} sx={{display:'flex'}}><PersonIcon/>Sourav</Typography>
+                                    <Typography component={'div'}><PersonIcon/><span>Sourav</span></Typography>
                                 </Box>
                             </Grid>
                             <Grid xs={12} md={12} lg={3}>
                                 <Box className={classes.slider_griditem3}>
                                     <Typography component={'div'}>Client Mobile</Typography>
-                                    <Typography component={'div'} sx={{display:'flex'}}><MobileScreenShareIcon/>900000000</Typography>
+                                    <Typography component={'div'} sx={{display:'flex'}}><MobileScreenShareIcon/><span>900000000</span></Typography>
                                 </Box>
                             </Grid>
                             <Grid xs={12} md={12} lg={3}>
                                 <Box className={classes.slider_griditem3}>
                                     <Typography component={'div'}>Client Email</Typography>
-                                    <Typography component={'div'} sx={{display:'flex'}}><MarkEmailUnreadIcon/>Sourav@gmail...</Typography>
+                                    <Typography component={'div'} sx={{display:'flex'}}><MarkEmailUnreadIcon/><span>Sourav@gmail...</span></Typography>
                                 </Box>
                             </Grid>
                            
                             <Grid xs={12} md={12} lg={3}>
                                 <Box className={classes.slider_griditem3}>
                                     <Typography component={'div'}>Client Address</Typography>
-                                    <Typography component={'div'} sx={{display:'flex'}}><LocationOnIcon/>{"Hyderabad"}</Typography>
+                                    <Typography component={'div'} sx={{display:'flex'}}><LocationOnIcon/><span>{"Hyderabad"}</span></Typography>
                                 </Box>
                             </Grid>
                         </Grid>
@@ -108,22 +108,22 @@ class ProjectDetails extends Component<IProps> {
                             <Grid item xs={12} md={12} lg={6}>
                                 <Box className={classes.slider_griditem5} sx={{background:'#fdf9df',border:'1.5px soild #fdf9df'}}>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}>
-                                    <CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of Front-End Devs</Typography>
+                                    <Typography component={'div'}>
+                                    <CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of Front-End Devs</span></Typography>
                                     <Typography component={'div'}> {"N/A"}</Typography>
                                 </Box>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of Back-End Devs</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of Back-End Devs</span></Typography>
                                     <Typography component={'div'}> {"N/A"}</Typography>
                                 </Box>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of Mobile Devs</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of Mobile Devs</span></Typography>
                                     <Typography component={'div'}>
                                         {"N/A"}
                                     </Typography>
                                 </Box>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of OA Testers</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of OA Testers</span></Typography>
                                     <Typography component={'div'}>
                                         {"N/A"}</Typography>
                                 </Box>
@@ -133,16 +133,16 @@ class ProjectDetails extends Component<IProps> {
                             <Grid item xs={12} md={12} lg={6}>
                                 <Box  className={classes.slider_griditem5} sx={{background:'#e2feff',border:'1px soild #e2feff'}}>
                                <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of DevOps Engineer</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of DevOps Engineer</span></Typography>
                                     <Typography component={'div'}>
                                         {"N/A"}</Typography>
                                 </Box>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of Project Managers</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of Project Managers</span></Typography>
                                     <Typography component={'div'}>{"N/A"}</Typography>
                                 </Box>
                                 <Box>
-                                    <Typography component={'div'} sx={{display:'flex'}}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/>No.of UI/UX Designers</Typography>
+                                    <Typography component={'div'}><CheckCircleOutlineIcon sx={{marginRight:'10px'}}/><span>No.of UI/UX Designers</span></Typography>
                                     <Typography component={'div'}>{"N/A"}</Typography>
                                 </Box>
                                 </Box>

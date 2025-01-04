@@ -41,10 +41,8 @@ function Filters({ classes, dispatch, handleOpen1,lsdesktop}: IProps) {
 
         <Box className={classes.filter} sx={{marginBottom:lsdesktop?"10px":""}}>
             <Filter open1={false} />
-            {lsdesktop?<Button size='small' variant='outlined' sx={{marginRight:'5px'}} onClick={hadleClient}><Add/></Button>:
-            <Button startIcon={<Add />} className={classes.exports1} onClick={hadleClient}>Add</Button>}
-            {lsdesktop?<Button size='small' variant='outlined' onClick={handleOpen1}><Exports /></Button>:
-            <Button className={classes.exports} onClick={handleOpen1} startIcon={<Exports />}>Exports</Button>}
+            <Button startIcon={<Add />} className={classes.exports1} onClick={hadleClient}>Add</Button>
+            <Button className={classes.exports} onClick={handleOpen1} startIcon={<Exports />}>Exports</Button>
 
         </Box>
     )

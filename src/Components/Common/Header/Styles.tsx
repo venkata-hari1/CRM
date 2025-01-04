@@ -12,6 +12,7 @@ export const Styles=(theme:Theme)=>({
     borderBottom:'1px solid #9fc5e933 !important',
     [theme.breakpoints.down('lg')]:{
       left:'0 !important',
+      padding:'18px 0px !important',
       width:'99% !important',
 
     }
@@ -163,9 +164,11 @@ export const Styles=(theme:Theme)=>({
     borderBottom:'1px solid #9fc5e933 !important'
   },
   headerTitle:{
-    
     fontSize:'180% !important',
     fontWeight:'900 !important',
+    [theme.breakpoints.down('lg')]:{
+      marginLeft:'15px'
+    }
   },
   btn3:{
     width:'100% !important'

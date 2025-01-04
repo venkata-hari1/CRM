@@ -34,6 +34,7 @@ export const Styles=(theme:Theme)=>({
     display:'flex',
     width:'20%',
     [theme.breakpoints.down('lg')]:{
+     marginTop:'50%',
       width:'100%'
     },
     justifyContent:'space-between',

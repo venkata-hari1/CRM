@@ -99,7 +99,11 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 900 !important;
   margin-left: 2% !important;
 }
-
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  display:flex;
+  justify-content: center;
+  width:68% !important
+}
 @media(max-width:830px){
   body{
     overflow-x: hidden !important;

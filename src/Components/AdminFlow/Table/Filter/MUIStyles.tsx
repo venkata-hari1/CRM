@@ -25,7 +25,10 @@ const Export={
 }
 export const Styles = (theme: Theme) => ({
     exports: {
-       ...Export
+       ...Export,
+       [theme.breakpoints.down('lg')]:{
+        width:'49% !important'
+       }
     },
     mainContainer:{
         ...flex
@@ -39,12 +42,17 @@ export const Styles = (theme: Theme) => ({
     },
     exports1: {
         ...Export,
-        marginRight:'10px !important'
+        marginRight:'10px !important',
+        [theme.breakpoints.down('lg')]:{
+            width:'49% !important',
+            marginRight:'0px !important', 
+        }
      },
     filterdata:{
         height:'6vh !important',
         width:"6vw !important",
-        border: "2px solid #073762"
+        border: "2px solid #073762",
+        
     },
     Add:{
 height: '6vh !important',
@@ -146,7 +154,11 @@ width:"6vw !important",
         marginTop:'3% !important',
         float:'right !important' as 'right',
         display:'flex !important',
-        justifyContent:'space-between !important'
+        justifyContent:'space-between !important',
+        [theme.breakpoints.down('lg')]:{
+            marginTop:'0px !important',
+            width:'100% !important'
+        }
     },
     export:{
         ...textTransform,
@@ -156,6 +168,9 @@ width:"6vw !important",
         border: '2px solid #073762 !important',
         borderRadius: '12px !important',
         fontWeight: '900 !important',
+        [theme.breakpoints.down('lg')]:{
+            width:'48%'
+        }
     },
     exportContainer :{
         ...textTransform,

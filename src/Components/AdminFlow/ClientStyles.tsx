@@ -326,11 +326,14 @@ export const Styles = (theme: Theme) => ({
          color: 'grey'
       },
       '&>div:nth-child(2)': {
-         textAlign:'center' as 'center',
+         display:'flex',
          marginTop: '8% !important',
-         display: 'flex',
          fontWeight: '800',
          fontSize: '96%',
+         '&>span':{
+            marginTop:'1%',
+            marginLeft:'1%'
+         },
          [theme.breakpoints.down('lg')]:{
             marginTop: '0px !important',
          }
@@ -365,8 +368,12 @@ export const Styles = (theme: Theme) => ({
             marginBottom: '10px'
          },
          '&>div:nth-child(1)': {
+            display:'flex',
             color: '#100A55',
-            fontSize:'100%'
+            fontSize:'100%',
+            '&>span':{
+               marginTop:'1.1%'
+            }
          },
          '&>div:nth-child(2)': {
             fontWeight: '800',

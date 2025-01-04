@@ -128,8 +128,8 @@ function UpdatePassword({ classes, dispatch }: IProps) {
        <Grid item xs={12} md={12} lg={6}>
        <Box className={classes.profileinformation}>
        <Box className={classes.listitems}>
-          <Box className={classes.personalinformation} sx={{marginLeft:'0.5%'}}>Change Password</Box>
-      <FormControl fullWidth sx={{marginLeft:'0.5%'}}>
+          <Box className={classes.personalinformation}>Change Password</Box>
+      <FormControl fullWidth>
         <TextField className={classes.textFiled} value={password.old} name='old' onChange={handlepasswordfun} placeholder='Old Password' InputProps={{
           classes: { input: classes.input },
         }} />

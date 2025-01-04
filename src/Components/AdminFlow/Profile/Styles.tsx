@@ -20,7 +20,7 @@ export const Styles=(theme:Theme)=>({
     profileinformation:{
         ...flex,
         width:'80%',
-        padding:'10px',
+        // padding:'10px',
         flexDirection:'column !important' as 'column',
         [theme.breakpoints.down('lg')]:{
             width:'100%'
@@ -319,7 +319,11 @@ export const Styles=(theme:Theme)=>({
         fontWeight:'900 !important',
         background:'#073762 !important',
         fontSize:'80% !important',
-        borderRadius:'8px !important'
+        borderRadius:'8px !important',
+        [theme.breakpoints.down('lg')]:{
+            width:'100% !important',
+            marginBottom:'5px !important'
+        }
         
     },
     profile_sideimage:{

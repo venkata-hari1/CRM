@@ -25,6 +25,10 @@ export const Styles=(theme:Theme)=>({
         background:'#073762 !important',
         color:'white !important',
         ...textTransform,
+        [theme.breakpoints.down('lg')]:{
+            position:'relative !important',
+            marginTop:'50% !important'
+        }
    
      
     },
