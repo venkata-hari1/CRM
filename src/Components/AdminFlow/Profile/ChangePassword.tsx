@@ -175,7 +175,10 @@ function UpdatePassword({ classes, dispatch }: IProps) {
       </Box>
       </Grid>
       <Grid item xs={12} md={12} lg={6}>
-                <Box src={Profile_SideImage} component={'img'} className={classes.profile_sideimage}/>
+        <Box className={classes.imagecontainer}>
+        <Box src={Profile_SideImage} component={'img'} className={classes.profile_sideimage}/>
+        </Box>
+          
             </Grid>
       </Grid>
     </Fragment>

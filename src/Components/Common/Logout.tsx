@@ -87,10 +87,10 @@ const isActive=value.includes(dataId)
            <Close sx={{fontSize:'120.00%'}} onClick={handleCancel}/>
         </DialogActions>
         <Divider/>
-        <DialogContent sx={{width:'300px'}}>
+        <DialogContent>
             <Box className={classes.dailogcontent}>Are you sure want to {name==='statusbtn'?isActive?"Close Project":"Active Project":"logout"}?</Box>
             <Box className={classes.btns}>
-                <Button onClick={handleLogout}>Yes, I want to</Button>
+                <Button onClick={handleLogout}>Yes</Button>
                 <Button onClick={handleCancel}>Cancel</Button>
             </Box>
         </DialogContent>

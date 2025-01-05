@@ -444,6 +444,7 @@ width:"6vw !important",
         alignItems:"center !important",
         borderBottom:'1px solid #9fc5e933 !important',
         [theme.breakpoints.down('lg')]: {
+            marginTop:'3.5% !important',
             width: '100% !important'
         }
     },

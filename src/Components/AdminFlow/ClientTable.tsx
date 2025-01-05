@@ -121,10 +121,12 @@ const value:any=selector?.LandingReducer?.value
                 <Fragment>
                    <Logout open={open} handleCancel={handleCancel} name='statusbtn' value={value} handleOpen={handleOpen} dataId={data.id}/>
                 <TableRow key={data?.id} className={classes.TableRow}>
-                  <TableCell sx={{display:'flex'}}>
-                      <Chip onClick={handleDetails} sx={{border:'none',fontSize:'100%'}} avatar={<Add sx={{pointer:'cursor','&:hover':{color:'#073762'}}}/>}
-                        label={<Box className={classes.tabledate}>{data.clientname}</Box>}
-                        variant="outlined" />             
+                  <TableCell   onClick={handleDetails}>
+                     <Box sx={{display:'flex'}}>
+                     <Add sx={{marginRight:'5px',pointer:'cursor','&:hover':{color:'#073762'}}}/>
+                     <Box className={classes.tabledate}>{data.clientname}</Box>
+                     </Box>
+                     
                   </TableCell>
                   <TableCell>
                     <Box className={classes.tabledate}>{data.projectname}</Box>

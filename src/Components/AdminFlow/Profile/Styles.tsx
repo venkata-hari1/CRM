@@ -328,5 +328,10 @@ export const Styles=(theme:Theme)=>({
     },
     profile_sideimage:{
         width:'83%'
+    },
+    imagecontainer:{
+        [theme.breakpoints.down('lg')]:{
+            ...flex
+        }
     }
 })
