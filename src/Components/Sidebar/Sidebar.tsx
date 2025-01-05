@@ -5,7 +5,7 @@ import { Styles } from './Styles';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {LogOut} from '../Common/assets/index'
 import Logo from '../Common/assets/images/logo1.png';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import { AdminId } from '../Redux/Reducers/LandingReducer';
@@ -67,10 +67,10 @@ const handleCancel=()=>{
 }
  const Id=localStorage.getItem('AdminSellerIds')
  const AdminDrawer=[
-  // {id:"1",txt:'Dashboard',route:'dashboard',icon:<HomeOutlinedIcon style={{color: location.pathname === "/admin/dashboard" ? 'white' : '#737787'}}/>,locationRoute:"/admin/dashboard"},
-  {id:"1",txt:'Clients',route:'clients',icon:<ExploreOutlinedIcon style={{color:location.pathname  === "/admin/clients" ? 'white' : '#737787'}}/>,locationRoute:"/admin/clients"},
-  {id:"2",txt:'Settings',route:'settings',icon:<SettingsIcon style={{color:location.pathname==="/admin/settings" ? 'white' : '#737787'}} />,locationRoute:"/admin/settings"},
-  {id:"3",txt:'Updates',route:'updates',icon:<HelpOutlineOutlinedIcon style={{color:location.pathname=== "/admin/updates" ? 'white' : '#737787'}} /> ,locationRoute:"/admin/updates"}
+  {id:"1",txt:'Dashboard',route:'dashboard',icon:<CameraOutdoorIcon style={{color: location.pathname === "/admin/dashboard" ? 'white' : '#737787'}}/>,locationRoute:"/admin/dashboard"},
+  {id:"2",txt:'Clients',route:'clients',icon:<ExploreOutlinedIcon style={{color:location.pathname  === "/admin/clients" ? 'white' : '#737787'}}/>,locationRoute:"/admin/clients"},
+  {id:"3",txt:'Settings',route:'settings',icon:<SettingsIcon style={{color:location.pathname==="/admin/settings" ? 'white' : '#737787'}} />,locationRoute:"/admin/settings"},
+  {id:"4",txt:'Updates',route:'updates',icon:<HelpOutlineOutlinedIcon style={{color:location.pathname=== "/admin/updates" ? 'white' : '#737787'}} /> ,locationRoute:"/admin/updates"}
   ]
 
   const role=localStorage.getItem('role')
@@ -87,7 +87,7 @@ const handleCancel=()=>{
     <Box className={classes.mainlistitems}> 
     <List>
       {Drawer.map((data:IData)=>
-      <ListItem key={data.id} className={data?.locationRoute===location.pathname?classes.mainlistitems1:classes.mainlistitems} onClick={()=>handleClick(data)}>
+      <ListItem key={data.id} sx={{cursor:'pointer'}} className={data?.locationRoute===location.pathname?classes.mainlistitems1:classes.mainlistitems} onClick={()=>handleClick(data)}>
         <ListItemIcon>{data.icon}</ListItemIcon>
         <ListItemText primary={<Typography className={data?.locationRoute===location.pathname?classes.sidebartext1:classes.sidebartext}>{data.txt}</Typography>}/>
       </ListItem>
