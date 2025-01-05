@@ -166,6 +166,7 @@ export const Styles=(theme:Theme)=>({
   headerTitle:{
     fontSize:'180% !important',
     fontWeight:'900 !important',
+    cursor:'pointer',
     [theme.breakpoints.down('lg')]:{
       marginLeft:'15px'
     }

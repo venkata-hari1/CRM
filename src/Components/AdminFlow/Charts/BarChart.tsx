@@ -12,9 +12,9 @@ function BarCharts({ classes }: IProps) {
     { year: "2019", projects: 10 },
     { year: "2021", projects: 13 },
     { year: "2022", projects: 12 },
-    { year: "2023", projects: 9 },
+    { year: "2023", projects: 19 },
     { year: "2024", projects: 10 },
-    { year: "2025", projects: 8 },
+    { year: "2025", projects: 2 },
   ];
 
   // Extract the years and projects data from tableData
@@ -32,7 +32,7 @@ function BarCharts({ classes }: IProps) {
     } else if (val === maxVal) {
       return "green"; // Max value is green
     } else {
-      return "orange"; // Default color for other bars
+      return "#073762"; // Default color for other bars
     }
   });
 
@@ -51,6 +51,7 @@ function BarCharts({ classes }: IProps) {
           {
             data: namesArray,
             scaleType: "band",
+          tickPlacement:"middle",
             colorMap: {
               type: "ordinal",
               values: namesArray,

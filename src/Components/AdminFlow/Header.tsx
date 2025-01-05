@@ -20,7 +20,7 @@ type IProps = {
   dispatch: AppDispatch
   window: () => Window
 }
-function Header({ name,classes, window, lsdesktop }: IProps) {
+function Header({ name,classes, window, lsdesktop,navigate }: IProps) {
   const [id, setId] = useState(1)
   const [value1, setValue1] = useState(false)
   const [display, setDisplay] = useState(false)
@@ -33,6 +33,10 @@ function Header({ name,classes, window, lsdesktop }: IProps) {
   const handlebtns = () => {
     setValue1(!value1)
     setDisplay(false)
+  }
+  const handleBack=(name:string)=>{
+    navigate(-1);
+    
   }
 
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -65,7 +69,7 @@ function Header({ name,classes, window, lsdesktop }: IProps) {
 
         <Grid container spacing={1} className={classes.gridContainer1}>
           <Grid item lg={8.5} xs={lsdesktop ? 8 : 6} md={lsdesktop ? 8 : 6}>
-            <Box className={classes.headerTitle}>{name}</Box>
+            <Box className={classes.headerTitle} onClick={()=>handleBack(name)}>{name}</Box>
           </Grid>
           <Grid item lg={3.5} xs={lsdesktop ? 4 : 5} md={lsdesktop ? 4 : 5}>
             {lsdesktop ? <MenuIcon sx={{ cursor: 'pointer',float:'right' }} onClick={handleDrawerToggle} /> :
