@@ -8,6 +8,7 @@ import { AppDispatch,} from '../Redux/store/Store';
 import { ReactComponent as Avatar } from '../Common/assets/images/avatar1.svg'
 import Sidebar from '../Sidebar/Sidebar';
 type IProps = {
+  location:any,
   lsdesktop: any,
   name: string,
   sell: boolean,
@@ -20,7 +21,7 @@ type IProps = {
   dispatch: AppDispatch
   window: () => Window
 }
-function Header({ name,classes, window, lsdesktop,navigate }: IProps) {
+function Header({ name,classes, window, lsdesktop,navigate,location }: IProps) {
   const [id, setId] = useState(1)
   const [value1, setValue1] = useState(false)
   const [display, setDisplay] = useState(false)
@@ -68,12 +69,12 @@ function Header({ name,classes, window, lsdesktop,navigate }: IProps) {
       <Box className={classes.headerContainer}>
 
         <Grid container spacing={1} className={classes.gridContainer1}>
-          <Grid item lg={8.5} xs={lsdesktop ? 8 : 6} md={lsdesktop ? 8 : 6}>
+          <Grid item lg={location.pathname!=="/admin/businees_info"?8.5:10.5} xs={lsdesktop ? 8 : 6} md={lsdesktop ? 8 : 6}>
             <Box className={classes.headerTitle} onClick={()=>handleBack(name)}>{name}</Box>
           </Grid>
-          <Grid item lg={3.5} xs={lsdesktop ? 4 : 5} md={lsdesktop ? 4 : 5}>
+          <Grid item lg={location.pathname!=="/admin/businees_info"?3.5:1.5} xs={lsdesktop ? 4 : 5} md={lsdesktop ? 4 : 5}>
             {lsdesktop ? <MenuIcon sx={{ cursor: 'pointer',float:'right' }} onClick={handleDrawerToggle} /> :
-              <Button size='small' sx={{ width: '30%' }} onClick={handlebtns} startIcon={
+              <Button size='small' sx={{ width: location.pathname!=="/admin/businees_info"?"30%":'100%' }} onClick={handlebtns} startIcon={
                 <Avatar className={classes.headerimage} />
               } className={classes.btn_icon}
               >

@@ -267,7 +267,7 @@ export const Styles = (theme: Theme) => ({
     secondarytext: {
         fontWeight: '900 !important',
         color: '#202020 !important',
-        fontSize: '180% !important',
+        fontSize: '130% !important',
         marginTop: '4% !important'
     },
     TotalRevenue_text: {

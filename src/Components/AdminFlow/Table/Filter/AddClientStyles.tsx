@@ -80,7 +80,6 @@ notchedOutline: {
   borderRadius:"8px !important"
 },
 cancelBtn:{
-  minWidth:"78px !important",
   height:"45px !important",
   borderRadius:"12px !important",
   border: "2px solid #073762 !important",

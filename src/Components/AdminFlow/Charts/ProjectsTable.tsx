@@ -26,9 +26,9 @@ function PieCharts({classes,name}:IProps) {
     <Box className={classes.mainboxconatiner}>
       <Grid container spacing={1} className={classes.gridContainer}>
         {Earning?.map((data:any) => (
-          <Grid item xs={12} md={12} lg={name==="analytics"?6:3} key={data.id}>
+          <Grid item xs={12} md={12} lg={3} key={data.id}>
             <List>
-              <ListItem sx={{marginTop:name==="analytics"?"25px!important":"" ,height:name==="analytics"?"25vh":""}} className={classes.listItemEarningBoxs}>
+              <ListItem className={classes.listItemEarningBoxs}>
                 <ListItemText
                   primary={<Typography className={classes.primarytext}>{data.txt}</Typography>}
                   secondary={<Typography className={classes.secondarytext}>{data?.data}</Typography>}

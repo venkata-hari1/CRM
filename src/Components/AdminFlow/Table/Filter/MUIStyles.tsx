@@ -30,6 +30,11 @@ export const Styles = (theme: Theme) => ({
         width:'49% !important'
        }
     },
+    images:{
+        width:'70px',
+        height:'70px',
+        borderRadius:'10px'
+    },
     mainContainer:{
         ...flex
     },
@@ -286,6 +291,15 @@ width:"6vw !important",
         width:'80%',
         display:'grid !important',
         gridTemplateColumns:'33% 33% 33%',
+        gridGap:'5px',
+        [theme.breakpoints.down('lg')]:{
+            width:'100%'
+        }
+    },
+    btncontainer1:{
+        width:'80%',
+        display:'grid !important',
+        gridTemplateColumns:'49% 49%',
         gridGap:'5px',
         [theme.breakpoints.down('lg')]:{
             width:'100%'

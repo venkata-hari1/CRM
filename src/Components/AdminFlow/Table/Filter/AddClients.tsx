@@ -16,38 +16,9 @@ type IProps = {
     open: boolean,
     editsale: null
     dispatch: AppDispatch
-    selector: {
-        SellerReducer: {
-            Sale: {
-                data: {
-                    userEmail: string,
-                    soldDate: string,
-                    status: string,
-                    price: number,
-                    paymentType: string
-                }
-            }
-        },
+    selector: {   
         LandingReducer: {
-            data: {
-                userName: string,
-                userEmail: string,
-                soldDate: string,
-                price: number,
-                paymentType: string,
-                status: string
-            },
             dailogbox: boolean
-        }
-        PropertyReducer: {
-            SellerProperties: {
-                data: {
-                    data: {
-                        id: number,
-                        apartmentName: string
-                    }[]
-                }
-            }
         }
     }
 }
@@ -57,15 +28,14 @@ type IState = {
     date: string,
     amount: number | null
 }
-function DialogBox({ classes, dispatch, selector, editsale }: IProps) {
-    const GetSale = selector?.SellerReducer?.Sale
+function DialogBox({ classes, dispatch, selector }: IProps) {
     const [propertyId, setPropertyId] = useState<string>('')
     const [tenetstatus, setTenetStatus] = useState<string>('')
     const [sales, setSales] = useState<IState>({
         email: '',
         name: '',
         date: '',
-        amount: GetSale?.data?.price ? GetSale?.data?.price : null
+        amount:null
     })
     const [error, setError] = useState<IState>({
         email: '',
@@ -74,9 +44,6 @@ function DialogBox({ classes, dispatch, selector, editsale }: IProps) {
         amount: null
     })
     const [selectedPayment, setSelectedPayment] = useState('');
-
-    const selectProperty = (e: SelectChangeEvent<string>) => {
-    }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
         if (name === 'email') {
@@ -97,12 +64,7 @@ function DialogBox({ classes, dispatch, selector, editsale }: IProps) {
         }
         setSales((prev) => ({ ...prev, [name]: value }))
     }
-    const handlePaymentChange = (e: SelectChangeEvent<string>) => {
-        setSelectedPayment(e.target.value);
-    };
-    const handleselectStatus = (e: SelectChangeEvent<string>) => {
-        setTenetStatus(e.target.value)
-    }
+
     const isFormComplete = () => {
         const { email, amount, date } = sales
         if (email && amount && date && error.email === "" && tenetstatus && selectedPayment && propertyId) {
@@ -117,7 +79,6 @@ function DialogBox({ classes, dispatch, selector, editsale }: IProps) {
     const handleclose = () => {
         dispatch(Dailog_Box(false))
     }
-    const PaymentType: any = []
     const open = selector.LandingReducer.dailogbox
     return (
         <Dialog open={open} classes={{ paper: classes.dialogPaper }} onClose={handleclose}>
@@ -151,7 +112,6 @@ function DialogBox({ classes, dispatch, selector, editsale }: IProps) {
                                         }} />
                                         <Button onClick={popupState.close} variant='contained' color='primary' size='small' className={classes.closeBtn}>Close</Button>
                                     </FormControl>
-                                    {/* <MenuItem onClick={popupState.close}>Logout</MenuItem> */}
                                 </Menu>
                             </React.Fragment>
                         )}
