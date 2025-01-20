@@ -46,9 +46,9 @@ type IProps = {
 
 
 const TableHeader = [
-  { id: 1, txt: 'Client Name', field: 'clientname' },
-  { id: 2, txt: 'Project Name', field: 'projectname' },
-  { id: 3, txt: 'Start Date', field: 'startdate' },
+  { id: 1, txt: 'ClientName', field: 'clientname' },
+  { id: 2, txt: 'ProjectName', field: 'projectname' },
+  { id: 3, txt: 'StartDate', field: 'startdate' },
   { id: 4, txt: 'Deadline', field: 'deadline' },
   { id: 5, txt: 'Status', field: 'status' },
   { id: 6, txt: 'Actions' },
