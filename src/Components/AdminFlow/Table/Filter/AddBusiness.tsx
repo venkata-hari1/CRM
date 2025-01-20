@@ -101,7 +101,6 @@ function DialogBox({ classes, dispatch, selector }: IProps) {
         dispatch(Dailog_Box(false))
     }
     const openFileDialog = () => {
-        // Trigger the hidden file input
         document.getElementById('file-input')?.click();
     };
 
